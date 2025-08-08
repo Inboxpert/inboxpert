@@ -9,8 +9,7 @@ Automatically organizes and categorizes emails using advanced AI technologies fo
 ## 📁 Folder Structure
 
 ```
-client/
-  └── inboxpert/   # Vite + React frontend
+client/            # Vite + React frontend
 server/            # Express backend API
 start.js           # Remote trigger to run both client and server
 ```
