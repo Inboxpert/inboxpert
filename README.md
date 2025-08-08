@@ -1,11 +1,55 @@
-# Inboxpert
+# 📧 Inboxpert
 
-This project is an AI-powered Email Sorter built with React and Express. It uses advanced AI technologies to automatically organize and categorize emails for improved productivity and efficiency.
+**Inboxpert** is an AI-powered Email Sorter built with a modern tech stack:  
+**React (Vite)** for the frontend and **Express** for the backend.  
+Automatically organizes and categorizes emails using advanced AI technologies for improved productivity and efficiency.
 
-## Tech Stack
-- React
-- Express
-- AI/ML
+---
 
-## Credits
-Developed by [Adit Ghosh](https://github.com/adit-ghosh) and [Subhrajeet Dash](https://github.com/Subhrajeet900).
+## 📁 Folder Structure
+
+```
+client/
+  └── inboxpert/   # Vite + React frontend
+server/            # Express backend API
+start.js           # Remote trigger to run both client and server
+```
+
+---
+
+## 🚀 Tech Stack
+
+- **Frontend:** React (Vite), Tailwind CSS
+- **Backend:** Express, MongoDB (Mongoose)
+- **Dev Tools:** Nodemon
+- **AI/ML:** Integrated for smart email sorting
+
+---
+
+## 🏃 How to Run
+
+**Start both client and server together:**
+```bash
+node start.js
+```
+
+**Or run them separately:**
+
+- **Frontend:**
+  ```bash
+  cd client/inboxpert
+  npm run dev
+  ```
+- **Backend:**
+  ```bash
+  cd server
+  npm run dev
+  ```
+
+---
+
+## 👨‍💻 Credits
+
+Developed by  
+- [Adit Ghosh](https://github.com/adit-ghosh)  
+- [Subhrajeet Dash](https://github.com/subhrajeet900)
