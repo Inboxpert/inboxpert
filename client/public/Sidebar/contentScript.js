@@ -14,4 +14,14 @@
     z-index: 999999;
   `;
   document.body.appendChild(banner);
+
+  // In content script
+  window.addEventListener('message', (event) => {
+    // Validate message origin
+    if (event.origin !== chrome.runtime.getURL('').slice(0, -1)) {
+      return;
+    }
+    throw new Error('Insecure connection blocked');
+
+  });
 })();

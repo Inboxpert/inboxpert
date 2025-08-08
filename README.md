@@ -1,7 +1,7 @@
 # 📧 Inboxpert
 
 **Inboxpert** is an AI-powered Email Sorter built with a modern tech stack:  
-**React (Vite)** for the frontend and **Express** for the backend.  
+**React** for the frontend and **Express** for the backend.  
 Automatically organizes and categorizes emails using advanced AI technologies for improved productivity and efficiency.
 
 ---
@@ -9,7 +9,7 @@ Automatically organizes and categorizes emails using advanced AI technologies fo
 ## 📁 Folder Structure
 
 ```
-client/            # Vite + React frontend
+client/            # React frontend
 server/            # Express backend API
 start.js           # Remote trigger to run both client and server
 ```
@@ -18,8 +18,8 @@ start.js           # Remote trigger to run both client and server
 
 ## 🚀 Tech Stack
 
-- **Frontend:** React (Vite), Tailwind CSS
-- **Backend:** Express, MongoDB (Mongoose)
+- **Frontend:** React, Tailwind CSS
+- **Backend:** Express, MongoDB
 - **Dev Tools:** Nodemon
 - **AI/ML:** Integrated for smart email sorting
 

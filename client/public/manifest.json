@@ -1,31 +1,36 @@
 {
   "manifest_version": 3,
   "name": "Inboxpert",
-  "version": "1.0.0",
-  "description": "Sort Email emails into categories with AI.",
-  "permissions": ["storage", "activeTab", "scripting"],
-  "host_permissions": ["https://mail.google.com/*"],
-  "background": {
-    "service_worker": "background.js"
-  },
-  "action": {
-    "default_popup": "index.html",
-    "default_title": "Inboxpert",
-    "default_icon": {
-      "16": "icon16.png",
-      "48": "icon48.png",
-      "128": "icon128.png"
-    }
-  },
+  "version": "1.0",
+  "description": "AI-powered email categorization",
   "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   },
-  "content_scripts": [
-    {
-      "matches": ["https://mail.google.com/*"],
-      "js": ["contentScript.js"]
+  "background": {
+    "service_worker": "JS/background.js"
+  },
+  "content_scripts": [{
+    "matches": ["*://mail.google.com/*"],
+    "js": ["JS/contentScript.js"],
+    "css": ["CSS/content.css"]
+  }],
+  "web_accessible_resources": [{
+    "resources": ["sidebar/sidebar.html"],
+    "matches": ["*://mail.google.com/*"]
+  }],
+  "permissions": ["storage", "identity"],
+  "host_permissions": ["*://mail.google.com/*", "https://your-backend-domain.com/*"],
+  "action": {
+    "default_popup": "sidebar/sidebar.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
     }
-  ]
+  },
+  "content_security_policy": {
+  "extension_pages": "script-src 'self'; object-src 'self'"
+  }
 }

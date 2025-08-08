@@ -1,26 +1,22 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
+// vite.config.js
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  plugins: [
-    react(),
-  
-    viteStaticCopy({
-      targets: [
-        { src: 'public/manifest.json', dest: '.' },
-        { src: 'public/*.png', dest: '.' }
-      ]
-    })
-  ],
-  server: {
-    port: 6291,
-  },
+  plugins: [react()],
+  publicDir: 'public',
   build: {
+    outDir: 'dist', // Changed from 'public/sidebar' to 'dist'
     rollupOptions: {
-      input: {
-        main: 'index.html'
+      input: 'src/main.jsx',
+      output: {
+        entryFileNames: `[name].js`,
+        chunkFileNames: `[name].js`,
+        assetFileNames: `[name].[ext]`
       }
     }
-  }
-})
+  },
+  server: {
+    port: 6392,
+  },
+});
