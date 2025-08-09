@@ -1,4 +1,5 @@
 console.log("Background service worker started");
+console.log("Background script loaded");
 
 // Initialize AI model download manager
 chrome.runtime.onInstalled.addListener(() => {
