@@ -34,3 +34,32 @@
 .status-light {
   @apply w-3 h-3 rounded-full bg-yellow-500 mr-2;
 }
+.inboxpert-ui {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 350px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.email-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.category-buttons {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.category-buttons button {
+  border: none;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  color: white;
+}
