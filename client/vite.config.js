@@ -2,19 +2,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
-import commonjs from '@rollup/plugin-commonjs';
-import inject from '@rollup/plugin-inject';
 import fs from 'fs'
 
 export default defineConfig({
-  plugins: [
-    react(),
-    commonjs(),
-    inject({
-      React: 'react',
-      ReactDOM: 'react-dom'
-    })
-  ],
+  plugins: [react()],
   build: {
     outDir: resolve(__dirname, 'dist'),
     emptyOutDir: true,
@@ -23,13 +14,6 @@ export default defineConfig({
         popup: resolve(__dirname, 'src/popup/index.html'),
         background: resolve(__dirname, 'src/background/index.js'),
         content: resolve(__dirname, 'src/content/index.jsx')
-      },
-      output: {
-        format: 'iife', // Immediately Invoked Function Expression
-        globals: {
-          'react': 'React',
-          'react-dom': 'ReactDOM'
-        }
       }
     }
   },
