@@ -1,19 +1,36 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
 import './styles.css';
 
-function initExtension() {
-  const rootContainer = document.createElement('div')
-  rootContainer.id = 'ai-email-sorter-root'
-  document.body.appendChild(rootContainer)
+function injectUI() {
+  // Create container for our UI
+  const container = document.createElement('div');
+  container.id = 'inboxpert-root';
+  container.style.position = 'fixed';
+  container.style.top = '20px';
+  container.style.right = '20px';
+  container.style.zIndex = '9999';
   
-  const root = ReactDOM.createRoot(rootContainer)
-  root.render(<App />)
+  // Add to Gmail's interface
+  document.body.appendChild(container);
+  
+  // Render React app
+  const root = ReactDOM.createRoot(container);
+  root.render(<App />);
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initExtension)
-} else {
-  initExtension()
+// Wait for Gmail to load
+if (document.location.href.includes('mail.google.com')) {
+  const observer = new MutationObserver((mutations, obs) => {
+    if (document.querySelector('[role="navigation"]')) {
+      injectUI();
+      obs.disconnect(); // Stop observing once injected
+    }
+  });
+  
+  observer.observe(document, {
+    childList: true,
+    subtree: true
+  });
 }
