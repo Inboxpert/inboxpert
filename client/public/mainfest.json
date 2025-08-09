@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Inboxpert",
+  "version": "0.1.0",
+  "description": "AI-powered email categorization",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "permissions": ["storage"]
+}

@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "AI Email Sorter",
+  "name": "Inboxpert",
   "version": "0.1.0",
   "description": "AI-powered email categorization and management",
   "background": {
