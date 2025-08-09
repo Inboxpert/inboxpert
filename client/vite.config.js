@@ -1,13 +1,16 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { crx } from '@crxjs/vite-plugin'
-import manifest from './src/manifest.json' assert { type: 'json' }
+import manifest from './src/manifest.json' with { type: 'json' }
 
 export default defineConfig({
   plugins: [
     react(),
     crx({ manifest }),
   ],
+  server: {
+    port: 6452,
+  },
   build: {
     rollupOptions: {
       input: {
@@ -17,4 +20,7 @@ export default defineConfig({
       },
     },
   },
+  optimizeDeps: {
+    include: ['react', 'react-dom'],
+  }
 })
