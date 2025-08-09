@@ -1,26 +1,37 @@
+// vite.config.js
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { crx } from '@crxjs/vite-plugin'
-import manifest from './src/manifest.json' with { type: 'json' }
+import { resolve } from 'path'
+import fs from 'fs'
 
 export default defineConfig({
-  plugins: [
-    react(),
-    crx({ manifest }),
-  ],
-  server: {
-    port: 6452,
-  },
+  plugins: [react()],
   build: {
+    outDir: resolve(__dirname, 'dist'),
+    emptyOutDir: true,
     rollupOptions: {
       input: {
-        popup: 'src/popup/index.html',
-        background: 'src/background/index.js',
-        content: 'src/content/index.js',
-      },
-    },
+        popup: resolve(__dirname, 'src/popup/index.html'),
+        background: resolve(__dirname, 'src/background/index.js'),
+        content: resolve(__dirname, 'src/content/index.jsx')
+      }
+    }
   },
-  optimizeDeps: {
-    include: ['react', 'react-dom'],
+  // Generate popup.html if missing
+  closeBundle() {
+    const popupPath = resolve(__dirname, 'dist/popup.html')
+    if (!fs.existsSync(popupPath)) {
+      fs.writeFileSync(popupPath, `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Popup</title>
+  <script src="popup.js" type="module"></script>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>`)
+    }
   }
 })

@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Inboxpert",
+  "version": "1.0.0",
+  "description": "AI-powered email categorization and management",
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup/index.html",
+    "default_title": "AI Email Sorter"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mail.google.com/*",
+        "https://outlook.live.com/*",
+        "https://mail.yahoo.com/*"
+      ],
+      "js": ["content/index.js"],
+      "css": ["content/styles.css"]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*",
+    "https://outlook.live.com/*",
+    "https://mail.yahoo.com/*"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
