@@ -19,7 +19,8 @@
         "https://mail.yahoo.com/*"
       ],
       "js": ["content.js"],
-      "css": ["content.css"]
+      "css": ["content.css"],
+      "world": "MAIN"
     }
   ],
   "permissions": [
